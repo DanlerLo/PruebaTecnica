@@ -4,7 +4,7 @@ Punto 1. Creacion CRUD para la gestion de empleados
 * Se utiliza MySql WorkBench para la base de datos
 * Se utiliza Cloudinary como almacenamiento en la nube para las imagenes de las fotos de los empleados
 
-* Backend: Para ejecutar el proyecto debe correr la carpeta demo y configurar con sus credenciales de MySQL WorkBench el archivo application.propieties. Con esto puede ejecutar el "PruebatecnicaApplication.java".
+* Backend: Para ejecutar el proyecto debe correr la carpeta demo y configurar con sus credenciales de MySQL WorkBench en el archivo application.propieties. Con esto puede ejecutar el "PruebatecnicaApplication.java".
 * Frontend: Proceda a ejecutar el front con el comando npm start 
 
 Punto 2. Solucion informatica para la empresa NSSA
