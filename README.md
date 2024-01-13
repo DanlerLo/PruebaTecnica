@@ -9,20 +9,26 @@ Punto 1. Creacion CRUD para la gestion de empleados
 
 Punto 2. Solucion informatica para la empresa NSSA
 1. Se identifican las siguientes tablas:
-   * Departamento:
-     - ID_Departamento  (Clave Primaria)
-     - Nombre_Departamento
-   * Empleado:
-     - ID_Empleado  (Clave Primaria)
-     - Nombre_Empleado
-     - ID_Departamento 
-   * TipoServicio:
-     - ID_TipoServicio  (Clave Primaria)
-     - Descripcion
-   * SolicitudServicio:
-     - ID_Solicitud  (Clave Primaria)
+   * Solicitante:
+     - ID_Solicitante (Clave Primaria)
+     - Nombre_Solicitante
+     - Cedula
+     - NumeroCel
+  * Solicitud:
+     - Nro_Solicitud (Clave Primaria)
      - Fecha_Solicitud
-     - ID_Empleado  (Clave Foránea de Solicitud)
-     - ID_TipoServicio  (Clave Foránea de Servicio)
+     - Estado_ID (Clave Foránea de Estado)
+     - ID_Solicitante (Clave Foránea de Solicitante)
+   * EstadoSolicitud:
+     - Estado_ID (Clave Primaria)
+     - Nombre_Estado
+   * Servicio:
+     - Nro_Servicio (Clave Primaria)
+     - Nombre_Servicio
+   * SolicitudServicio (Tabla de relación para Solicitud y Servicio):
+     - Nro_Solicitud (Clave Foránea de Solicitud)
+     - Nro_Servicio (Clave Foránea de Servicio)
 2. Modelo Entidad Relacion
-   ![image](https://github.com/DanlerLo/PruebaTecnica/assets/50645244/61d097a2-6046-48d7-8ba8-900827383b00)
+   ![image](https://github.com/DanlerLo/PruebaTecnica/assets/50645244/4ed1374c-695b-4235-8f8b-24fe323e19a9)
+
+
