@@ -40,7 +40,7 @@ CREATE TABLE Solicitud_Servicio (
 
 
 -- Insertando datos en la tabla Solicitante
-INSERT INTO Solicitante (ID_Solicitante, Nombre) VALUES
+INSERT INTO Solicitante (ID_Solicitante, Nombre, Cedula, NumeroCel) VALUES
 (1, 'Daniel Loaiza', '1005979101', '317722'),
 (2, 'Ana Gómez', '1006208544', '317728'),
 (3, 'Luis Ramírez', '1002747191', '317422');
