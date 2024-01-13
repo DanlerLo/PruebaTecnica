@@ -1,0 +1,87 @@
+Create Database Servicios
+
+CREATE TABLE Solicitante (
+    ID_Solicitante INT PRIMARY KEY,
+    Nombre VARCHAR(255),
+    Cedula INTEGER ,
+    NumeroCel Integer
+);
+
+-- Creación de la tabla Estado_Solicitud
+CREATE TABLE Estado_Solicitud (
+    ID_Estado INT PRIMARY KEY,
+    Nombre_Estado VARCHAR(255)
+);
+
+-- Creación de la tabla Solicitud
+CREATE TABLE Solicitud (
+    Nro_Solicitud INT PRIMARY KEY,
+    Fecha_Solicitud DATETIME,
+    ID_Solicitante INT,
+    ID_Estado INT,
+    FOREIGN KEY (ID_Solicitante) REFERENCES Solicitante(ID_Solicitante),
+    FOREIGN KEY (ID_Estado) REFERENCES Estado_Solicitud(ID_Estado)
+);
+
+-- Creación de la tabla Servicio
+CREATE TABLE Servicio (
+    Nro_Servicio INT PRIMARY KEY,
+    Nombre_Servicio VARCHAR(255)
+);
+
+-- Creación de la tabla Solicitud_Servicio 
+CREATE TABLE Solicitud_Servicio (
+    Nro_Solicitud INT,
+    Nro_Servicio INT,
+    FOREIGN KEY (Nro_Solicitud) REFERENCES Solicitud(Nro_Solicitud),
+    FOREIGN KEY (Nro_Servicio) REFERENCES Servicio(Nro_Servicio),
+    PRIMARY KEY (Nro_Solicitud, Nro_Servicio)
+);
+
+
+-- Insertando datos en la tabla Solicitante
+INSERT INTO Solicitante (ID_Solicitante, Nombre) VALUES
+(1, 'Daniel Loaiza', '1005979101', '317722'),
+(2, 'Ana Gómez', '1006208544', '317728'),
+(3, 'Luis Ramírez', '1002747191', '317422');
+
+-- Insertando datos en la tabla Estado_Solicitud
+INSERT INTO Estado_Solicitud (ID_Estado, Nombre_Estado) VALUES
+(1, 'Pendiente'),
+(2, 'En Proceso'),
+(3, 'Completado');
+
+-- Insertando datos en la tabla Solicitud
+INSERT INTO Solicitud (Nro_Solicitud, Fecha_Solicitud, ID_Solicitante, ID_Estado) VALUES
+(1001, '2024-01-13 09:00:00', 1, 1),
+(1002, '2024-01-14 10:30:00', 2, 2),
+(1003, '2024-01-15 11:45:00', 3, 3);
+
+-- Insertando datos en la tabla Servicio
+INSERT INTO Servicio (Nro_Servicio, Nombre_Servicio) VALUES
+(501, 'Consultoría IT'),
+(502, 'Desarrollo de Software'),
+(503, 'Soporte Técnico');
+
+-- Insertando datos en la tabla Solicitud_Servicio
+INSERT INTO Solicitud_Servicio (Nro_Solicitud, Nro_Servicio) VALUES
+(1001, 501),
+(1001, 502),
+(1002, 503),
+(1003, 501),
+(1003, 502),
+(1003, 503);
+
+-- Select trayendo los datos --
+SELECT
+    S.Nro_Solicitud,
+    So.Nombre AS Nombre_Solicitante,
+    E.ID_Estado AS Nro_Estado_Solicitud,
+    E.Nombre_Estado,
+    Se.Nro_Servicio,
+    Se.Nombre_Servicio
+FROM Solicitud S
+JOIN Solicitante So ON S.ID_Solicitante = So.ID_Solicitante
+JOIN Estado_Solicitud E ON S.ID_Estado = E.ID_Estado
+JOIN Solicitud_Servicio SS ON S.Nro_Solicitud = SS.Nro_Solicitud
+JOIN Servicio Se ON SS.Nro_Servicio = Se.Nro_Servicio;
