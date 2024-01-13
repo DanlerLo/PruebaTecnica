@@ -1,0 +1,17 @@
+.container {
+  padding: 19px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 50%; 
+    margin-bottom: 10px; 
+  }
+}
+.table th:first-child, .table td:first-child {
+  padding-left: 30px;
+}
