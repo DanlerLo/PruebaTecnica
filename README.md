@@ -9,7 +9,8 @@ Punto 2. Solucion informatica para la empresa NSSA
    * Solicitante:
      - ID_Solicitante (Clave Primaria)
      - Nombre_Solicitante
-     - Otros detalles del solicitante (como contacto, dirección, etc.)
+     - Cedula
+     - Numero
    * Solicitud:
      - Nro_Solicitud (Clave Primaria)
      - Fecha_Solicitud
